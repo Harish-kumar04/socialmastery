@@ -1,0 +1,2213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Social Mastery - Affordable, high-quality websites and digital marketing services. Full-stack web development, SEO, paid ads, and social media management.">
+    <meta name="keywords" content="web development, digital marketing, SEO, affordable websites, social media marketing, paid ads">
+    <meta name="author" content="Social Mastery">
+    <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/521fwsbC/1.jpg">
+    <link rel="canonical" href="https://socialmastery.example.com/">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Social Mastery - Affordable Web Development & Digital Marketing">
+    <meta property="og:description" content="Get a professional, high-quality website starting at just ₹2000. Expert digital marketing services to grow your business.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://socialmastery.example.com/">
+    <meta property="og:image" content="https://socialmastery.example.com/og-image.jpg">
+    
+    <title>Social Mastery - Affordable Web Development & Digital Marketing Services</title>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Social Mastery",
+      "description": "Digital marketing and full-stack web development company",
+      "url": "https://socialmastery.example.com",
+      "logo": "https://socialmastery.example.com/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "8124246816",
+        "contactType": "Customer Service",
+        "email": "hello@socialmastery.com"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://facebook.com/socialmastery",
+        "https://twitter.com/socialmastery",
+        "https://linkedin.com/company/socialmastery"
+      ]
+    }
+    </script>
+    
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        :root {
+            /* Modern blue-green color palette */
+            --primary-blue: #2563eb;
+            --primary-green: #10b981;
+            --light-blue: #dbeafe;
+            --light-green: #d1fae5;
+            --dark-blue: #1e40af;
+            --dark-green: #059669;
+            --gradient: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-white: #ffffff;
+            --bg-light: #f9fafb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            
+            /* Fluid typography using clamp() */
+            --fs-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+            --fs-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+            --fs-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+            --fs-lg: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
+            --fs-xl: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+            --fs-2xl: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
+            
+            /* Spacing scale */
+            --space-xs: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);
+            --space-sm: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+            --space-md: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+            --space-lg: clamp(3rem, 2rem + 5vw, 5rem);
+            --space-xl: clamp(5rem, 3rem + 10vw, 8rem);
+            
+            /* Custom cubic-bezier easing */
+            --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+            --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --ease-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        /* System font stack for performance */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-size: var(--fs-base);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* ===== LAYOUT & TYPOGRAPHY ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-sm);
+        }
+        
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-dark);
+        }
+        
+        h1 { font-size: var(--fs-2xl); }
+        h2 { font-size: var(--fs-xl); }
+        h3 { font-size: var(--fs-lg); }
+        
+        p { 
+            font-size: var(--fs-base);
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: transform 0.3s var(--ease-smooth);
+        }
+        
+        header.hidden {
+            transform: translateY(-100%);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-sm) var(--space-sm);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: var(--fs-lg);
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--space-sm);
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s var(--ease-smooth);
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: all 0.3s var(--ease-smooth);
+            transform: translateX(-50%);
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a:focus::after {
+            width: 80%;
+        }
+        
+        .nav-links a:focus {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 4px;
+        }
+        
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s var(--ease-smooth);
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        /* ===== HERO SECTION ===== */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+        
+        /* Canvas background */
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        /* Parallax SVG background */
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            will-change: transform;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: var(--space-md);
+        }
+        
+        .hero-title {
+            margin-bottom: var(--space-sm);
+            animation: heroTitleEnter 1s var(--ease-elastic) both;
+        }
+        
+        /* Fluid typography animation */
+        @keyframes heroTitleEnter {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .hero-subtitle {
+            font-size: var(--fs-lg);
+            color: var(--text-light);
+            margin-bottom: var(--space-md);
+            animation: fadeInUp 1s 0.2s var(--ease-smooth) both;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .cta-group {
+            display: flex;
+            gap: var(--space-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s 0.4s var(--ease-smooth) both;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-smooth);
+            position: relative;
+            overflow: hidden;
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        /* Touch press micro-interaction */
+        .btn:active::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-primary:hover,
+        .btn-primary:focus {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+        
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .btn:focus {
+            outline: 2px solid var(--primary-green);
+            outline-offset: 4px;
+        }
+        
+        /* ===== SCROLL ANIMATIONS ===== */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s var(--ease-smooth);
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ===== SERVICES SECTION ===== */
+        #services {
+            padding: var(--space-xl) 0;
+            background: var(--bg-light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+        
+        .service-card {
+            background: white;
+            padding: var(--space-md);
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            transition: all 0.4s var(--ease-smooth);
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: var(--space-sm);
+            animation: rotateIn 0.6s var(--ease-bounce);
+        }
+        
+        @keyframes rotateIn {
+            from {
+                opacity: 0;
+                transform: rotate(-180deg) scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(0) scale(1);
+            }
+        }
+        
+        .service-card h3 {
+            margin-bottom: var(--space-xs);
+            color: var(--primary-blue);
+        }
+        
+        .service-card ul {
+            list-style: none;
+            margin-top: var(--space-sm);
+        }
+        
+        .service-card li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-size: var(--fs-sm);
+        }
+        
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+        
+        /* ===== STICKY FEATURES PANEL ===== */
+        #features {
+            padding: var(--space-xl) 0;
+            position: relative;
+        }
+        
+        .features-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            align-items: start;
+        }
+        
+        .features-sticky {
+            position: sticky;
+            top: 120px;
+            will-change: transform;
+        }
+        
+        .feature-card-3d {
+            background: white;
+            padding: var(--space-md);
+            border-radius: 1rem;
+            box-shadow: var(--shadow-lg);
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            transition: all 0.3s var(--ease-smooth);
+        }
+        
+        /* 3D transform on hover */
+        .feature-card-3d:hover {
+            transform: rotateY(5deg) rotateX(5deg);
+        }
+        
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+        
+        .feature-item {
+            background: var(--bg-light);
+            padding: var(--space-md);
+            border-radius: 1rem;
+            border-left: 4px solid var(--primary-green);
+        }
+        
+        /* ===== PORTFOLIO SECTION ===== */
+        #portfolio {
+            padding: var(--space-xl) 0;
+            background: var(--bg-light);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+        
+        .portfolio-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: all 0.4s var(--ease-smooth);
+            transform: translate3d(0, 0, 0);
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* SVG line drawing animation */
+        .portfolio-svg {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawLine 2s ease-in-out forwards;
+        }
+        
+        @keyframes drawLine {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        .portfolio-card:hover .portfolio-svg {
+            animation: drawLine 1s ease-in-out forwards;
+        }
+        
+        .portfolio-content {
+            padding: var(--space-md);
+        }
+        
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s var(--ease-smooth);
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: white;
+            padding: var(--space-lg);
+            border-radius: 1rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            animation: slideUp 0.4s var(--ease-bounce);
+            transform: translate3d(0, 0, 0);
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .modal-close {
+            float: right;
+            font-size: 2rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            color: var(--text-light);
+            transition: color 0.3s;
+        }
+        
+        .modal-close:hover {
+            color: var(--text-dark);
+        }
+        
+        /* ===== PRICING SECTION ===== */
+        #pricing {
+            padding: var(--space-xl) 0;
+        }
+        
+        .pricing-card {
+            background: white;
+            padding: var(--space-lg);
+            border-radius: 1rem;
+            box-shadow: var(--shadow-lg);
+            max-width: 600px;
+            margin: var(--space-md) auto;
+            text-align: center;
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: var(--gradient);
+            border-radius: 1rem;
+            z-index: -1;
+        }
+        
+        .price {
+            font-size: var(--fs-2xl);
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: var(--space-sm) 0;
+        }
+        
+        .why-choose {
+            margin-top: var(--space-lg);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-md);
+        }
+        
+        .why-card {
+            background: var(--bg-light);
+            padding: var(--space-md);
+            border-radius: 0.75rem;
+            text-align: left;
+        }
+        
+        /* ===== CONTACT FORM ===== */
+        #contact {
+            padding: var(--space-xl) 0;
+            background: var(--bg-light);
+        }
+        
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-sm);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            font-family: inherit;
+            font-size: var(--fs-base);
+            transition: all 0.3s var(--ease-smooth);
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-error {
+            color: #ef4444;
+            font-size: var(--fs-sm);
+            margin-top: 0.25rem;
+            display: none;
+        }
+        
+        .form-success {
+            background: var(--light-green);
+            color: var(--dark-green);
+            padding: var(--space-sm);
+            border-radius: 0.5rem;
+            margin-top: var(--space-sm);
+            display: none;
+            animation: slideDown 0.4s var(--ease-bounce);
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: var(--space-lg) 0 var(--space-md);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s var(--ease-smooth);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-blue);
+            transform: translateY(-3px) rotate(5deg);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: var(--space-md);
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s var(--ease-smooth);
+                pointer-events: none;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .features-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-sticky {
+                position: static;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+        
+        /* ===== ACCESSIBILITY ===== */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* High contrast focus states */
+        *:focus-visible {
+            outline: 3px solid var(--primary-blue);
+            outline-offset: 2px;
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header id="header">
+        <nav>
+            <div class="logo">
+    <img src="https://i.postimg.cc/521fwsbC/1.jpg" alt="Social Mastery Logo" style="height:45px; width:auto; vertical-align:middle; border-radius:8px; margin-right:8px;">
+    <span style="vertical-align:middle;">Social Mastery</span>
+</div>
+
+            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" role="navigation">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="hero" aria-labelledby="hero-title">
+            <canvas id="hero-canvas" aria-hidden="true"></canvas>
+            
+            <!-- Parallax SVG Background -->
+            <svg class="hero-bg" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <animate attributeName="x1" values="0%;100%;0%" dur="20s" repeatCount="indefinite" />
+                        <stop offset="0%" style="stop-color:#dbeafe;stop-opacity:0.3" />
+                        <stop offset="100%" style="stop-color:#d1fae5;stop-opacity:0.3" />
+                    </linearGradient>
+                </defs>
+                <circle cx="200" cy="400" r="150" fill="url(#grad1)" opacity="0.5">
+                    <animate attributeName="cy" values="400;350;400" dur="6s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="1000" cy="300" r="200" fill="url(#grad1)" opacity="0.4">
+                    <animate attributeName="cx" values="1000;1050;1000" dur="8s" repeatCount="indefinite"
+
+/>
+                </circle>
+                <path d="M0,400 Q300,350 600,400 T1200,400" stroke="#10b981" stroke-width="2" fill="none" opacity="0.3">
+                    <animate attributeName="d" 
+                        values="M0,400 Q300,350 600,400 T1200,400;M0,400 Q300,450 600,400 T1200,400;M0,400 Q300,350 600,400 T1200,400" 
+                        dur="10s" 
+                        repeatCount="indefinite" />
+                </path>
+            </svg>
+            
+            <div class="hero-content container">
+                <h1 id="hero-title" class="hero-title">Affordable Websites That <span style="background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Grow Your Business</span></h1>
+                <p class="hero-subtitle">Professional web development and digital marketing services starting at just ₹2000. Get online fast with high-quality, custom solutions.</p>
+                <div class="cta-group">
+                    <a href="#contact" class="btn btn-primary">Get Free Quote</a>
+                    <a href="#services" class="btn btn-secondary">View Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="animate-on-scroll" aria-labelledby="services-title">
+            <div class="container">
+                <h2 id="services-title" class="section-title">Our Services</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto;">Complete digital solutions to help your business thrive online</p>
+                
+                <div class="services-grid">
+                    <!-- Web Development -->
+                    <article class="service-card">
+                        <svg class="service-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect x="4" y="8" width="56" height="40" rx="3" fill="none" stroke="#2563eb" stroke-width="2"/>
+                            <line x1="4" y1="16" x2="60" y2="16" stroke="#2563eb" stroke-width="2"/>
+                            <rect x="12" y="52" width="40" height="4" rx="1" fill="#10b981"/>
+                            <line x1="32" y1="48" x2="32" y2="52" stroke="#10b981" stroke-width="2"/>
+                            <circle cx="10" cy="12" r="1.5" fill="#ef4444"/>
+                            <circle cx="16" cy="12" r="1.5" fill="#f59e0b"/>
+                            <circle cx="22" cy="12" r="1.5" fill="#10b981"/>
+                            <path d="M20,28 L28,36 L20,44" stroke="#2563eb" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <line x1="32" y1="44" x2="44" y2="28" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Web Development</h3>
+                        <p>Full-stack custom websites built for performance and conversions</p>
+                        <ul>
+                            <li>Responsive, mobile-first design</li>
+                            <li>Lightning-fast page speeds</li>
+                            <li>E-commerce & custom features</li>
+                            <li>Content management systems</li>
+                            <li>Ongoing maintenance & support</li>
+                        </ul>
+                    </article>
+
+                    <!-- SEO Services -->
+                    <article class="service-card">
+                        <svg class="service-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <circle cx="28" cy="28" r="16" fill="none" stroke="#2563eb" stroke-width="3"/>
+                            <line x1="40" y1="40" x2="54" y2="54" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M28,20 L28,28 L34,34" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <circle cx="28" cy="12" r="2" fill="#f59e0b"/>
+                            <circle cx="44" cy="28" r="2" fill="#f59e0b"/>
+                            <circle cx="28" cy="44" r="2" fill="#f59e0b"/>
+                        </svg>
+                        <h3>SEO Optimization</h3>
+                        <p>Rank higher on Google and drive organic traffic</p>
+                        <ul>
+                            <li>Keyword research & strategy</li>
+                            <li>On-page & technical SEO</li>
+                            <li>Local SEO & Google My Business</li>
+                            <li>Content optimization</li>
+                            <li>Monthly performance reports</li>
+                        </ul>
+                    </article>
+
+                    <!-- Paid Advertising -->
+                    <article class="service-card">
+                        <svg class="service-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect x="8" y="20" width="48" height="32" rx="2" fill="none" stroke="#2563eb" stroke-width="2"/>
+                            <path d="M8,28 L56,28" stroke="#2563eb" stroke-width="2"/>
+                            <circle cx="32" cy="38" r="6" fill="none" stroke="#10b981" stroke-width="2"/>
+                            <line x1="32" y1="32" x2="32" y2="44" stroke="#10b981" stroke-width="2"/>
+                            <line x1="26" y1="38" x2="38" y2="38" stroke="#10b981" stroke-width="2"/>
+                            <path d="M32,12 L36,20 L28,20 Z" fill="#f59e0b"/>
+                            <line x1="32" y1="12" x2="32" y2="20" stroke="#f59e0b" stroke-width="2"/>
+                        </svg>
+                        <h3>Paid Advertising</h3>
+                        <p>Targeted campaigns that deliver measurable ROI</p>
+                        <ul>
+                            <li>Google Ads management</li>
+                            <li>Facebook & Instagram ads</li>
+                            <li>Retargeting campaigns</li>
+                            <li>A/B testing & optimization</li>
+                            <li>Conversion tracking & analytics</li>
+                        </ul>
+                    </article>
+
+                    <!-- Social Media -->
+                    <article class="service-card">
+                        <svg class="service-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <circle cx="32" cy="32" r="20" fill="none" stroke="#2563eb" stroke-width="2"/>
+                            <circle cx="22" cy="26" r="6" fill="none" stroke="#10b981" stroke-width="2"/>
+                            <circle cx="42" cy="26" r="6" fill="none" stroke="#10b981" stroke-width="2"/>
+                            <circle cx="32" cy="44" r="6" fill="none" stroke="#10b981" stroke-width="2"/>
+                            <line x1="27" y1="29" x2="26" y2="39" stroke="#f59e0b" stroke-width="2"/>
+                            <line x1="37" y1="29" x2="38" y2="39" stroke="#f59e0b" stroke-width="2"/>
+                            <line x1="26" y1="39" x2="38" y2="39" stroke="#f59e0b" stroke-width="2"/>
+                        </svg>
+                        <h3>Social Media Marketing</h3>
+                        <p>Build your brand and engage your audience</p>
+                        <ul>
+                            <li>Content creation & scheduling</li>
+                            <li>Community management</li>
+                            <li>Influencer partnerships</li>
+                            <li>Social media strategy</li>
+                            <li>Analytics & growth tracking</li>
+                        </ul>
+                    </article>
+
+                    <!-- Maintenance -->
+                    <article class="service-card">
+                        <svg class="service-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M32,8 L40,20 L52,22 L42,32 L44,44 L32,38 L20,44 L22,32 L12,22 L24,20 Z" fill="none" stroke="#2563eb" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="8" fill="none" stroke="#10b981" stroke-width="2"/>
+                            <path d="M28,32 L30,34 L36,28" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="52" cy="12" r="4" fill="#f59e0b"/>
+                            <path d="M50,10 L54,14" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M54,10 L50,14" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Website Maintenance</h3>
+                        <p>Keep your site secure, fast, and up-to-date</p>
+                        <ul>
+                            <li>Regular security updates</li>
+                            <li>Performance optimization</li>
+                            <li>Backup & disaster recovery</li>
+                            <li>Content updates & changes</li>
+                            <li>24/7 monitoring & support</li>
+                        </ul>
+                    </article>
+
+                    <!-- Branding -->
+                    <article class="service-card">
+                        <svg class="service-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect x="12" y="16" width="40" height="32" rx="2" fill="none" stroke="#2563eb" stroke-width="2"/>
+                            <path d="M20,28 Q26,22 32,28 Q38,34 44,28" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="26" cy="36" r="2" fill="#f59e0b"/>
+                            <circle cx="38" cy="36" r="2" fill="#f59e0b"/>
+                            <path d="M28,42 Q32,44 36,42" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Branding & Design</h3>
+                        <p>Create a memorable brand identity</p>
+                        <ul>
+                            <li>Logo design & brand guidelines</li>
+                            <li>Marketing materials</li>
+                            <li>UI/UX design</li>
+                            <li>Brand strategy consulting</li>
+                            <li>Print & digital assets</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES WITH STICKY PANEL -->
+        <section id="features" class="animate-on-scroll" aria-labelledby="features-title">
+            <div class="container">
+                <h2 id="features-title" class="section-title">Why Choose Social Mastery</h2>
+                
+                <div class="features-container">
+                    <div class="features-sticky">
+                        <div class="feature-card-3d" id="interactive-card">
+                            <h3>Interactive Excellence</h3>
+                            <p>Hover over this card to see our attention to detail. We build websites that engage and convert.</p>
+                            <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; margin-top: 1rem;">
+                                <path class="portfolio-svg" d="M10,50 Q50,20 100,50 T190,50" stroke="#2563eb" stroke-width="3" fill="none"/>
+                                <circle cx="10" cy="50" r="4" fill="#10b981"/>
+                                <circle cx="100" cy="50" r="4" fill="#10b981"/>
+                                <circle cx="190" cy="50" r="4" fill="#10b981"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <h3>🚀 Lightning Fast</h3>
+                            <p>Optimized for speed with under 2-second load times. Fast sites rank better and convert more visitors.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>📱 Mobile First</h3>
+                            <p>Over 60% of web traffic is mobile. We design for mobile first, ensuring perfect experiences on all devices.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>🔒 Secure & Reliable</h3>
+                            <p>SSL certificates, regular backups, and proactive security monitoring keep your site safe 24/7.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>♿ Accessible to All</h3>
+                            <p>WCAG compliant designs ensure everyone can use your site, expanding your reach and improving SEO.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>📈 Growth Focused</h3>
+                            <p>Every site is built with analytics, conversion optimization, and scalability in mind.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO SECTION -->
+        <section id="portfolio" class="animate-on-scroll" aria-labelledby="portfolio-title">
+            <div class="container">
+                <h2 id="portfolio-title" class="section-title">Recent Projects</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto;">Showcasing our commitment to quality and results</p>
+                
+                <div class="portfolio-grid">
+                    <article class="portfolio-card" data-project="ecommerce">
+                        <div class="portfolio-image">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 80%;">
+                                <rect x="20" y="40" width="160" height="120" rx="5" fill="none" stroke="white" stroke-width="3" class="portfolio-svg"/>
+                                <line x1="20" y1="60" x2="180" y2="60" stroke="white" stroke-width="3"/>
+                                <circle cx="35" cy="50" r="3" fill="white"/>
+                                <circle cx="50" cy="50" r="3" fill="white"/>
+                                <path d="M60,90 L80,90 L85,110 L75,110 Z M90,90 L110,90 L115,110 L105,110 Z M120,90 L140,90 L145,110 L135,110 Z" fill="white" opacity="0.8"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>E-Commerce Platform</h3>
+                            <p>Modern online store with seamless checkout, inventory management, and mobile optimization. Increased sales by 156%.</p>
+                            <button class="btn btn-secondary" style="margin-top: 1rem; width: 100%;">View Details</button>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-card" data-project="restaurant">
+                        <div class="portfolio-image">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 80%;">
+                                <circle cx="100" cy="100" r="60" fill="none" stroke="white" stroke-width="3" class="portfolio-svg"/>
+                                <path d="M70,100 L85,115 L130,70" stroke="white" stroke-width="4" fill="none" stroke-linecap="round" class="portfolio-svg"/>
+                                <path d="M100,40 L100,60 M100,140 L100,160 M40,100 L60,100 M140,100 L160,100" stroke="white" stroke-width="2" opacity="0.5"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Restaurant Website</h3>
+                            <p>Beautiful menu showcase with online reservations and ordering. Mobile traffic increased 240% in first month.</p>
+                            <button class="btn btn-secondary" style="margin-top: 1rem; width: 100%;">View Details</button>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-card" data-project="saas">
+                        <div class="portfolio-image">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 80%;">
+                                <rect x="40" y="60" width="120" height="80" rx="5" fill="none" stroke="white" stroke-width="3" class="portfolio-svg"/>
+                                <line x1="60" y1="80" x2="140" y2="80" stroke="white" stroke-width="2"/>
+                                <line x1="60" y1="100" x2="120" y2="100" stroke="white" stroke-width="2"/>
+                                <line x1="60" y1="120" x2="130" y2="120" stroke="white" stroke-width="2"/>
+                                <circle cx="50" cy="80" r="3" fill="white"/>
+                                <circle cx="50" cy="100" r="3" fill="white"/>
+                                <circle cx="50" cy="120" r="3" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>SaaS Dashboard</h3>
+                            <p>Clean, intuitive interface for B2B software platform. User engagement up 89%, support tickets down 45%.</p>
+                            <button class="btn btn-secondary" style="margin-top: 1rem; width: 100%;">View Details</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING SECTION -->
+        <section id="pricing" class="animate-on-scroll" aria-labelledby="pricing-title">
+            <div class="container">
+                <h2 id="pricing-title" class="section-title">Affordable Pricing</h2>
+                
+                <div class="pricing-card">
+                    <h3>Professional Websites</h3>
+                    <div class="price">Starting at ₹2000</div>
+                    <p>Get a complete, professional website without breaking the bank. No hidden fees, no surprises.</p>
+                    <ul style="text-align: left; max-width: 400px; margin: 1.5rem auto; list-style: none;">
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-green); font-weight: bold;">✓</span>
+                            Custom responsive design
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-green); font-weight: bold;">✓</span>
+                            SEO optimization included
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-green); font-weight: bold;">✓</span>
+                            Up to 5 pages
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-green); font-weight: bold;">✓</span>
+                            Contact forms & integrations
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-green); font-weight: bold;">✓</span>
+                            2 weeks delivery
+                        </li>
+                        <li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-green); font-weight: bold;">✓</span>
+                            30 days free support
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">Get Started Today</a>
+                </div>
+
+                <div class="why-choose">
+                    <div class="why-card">
+                        <h3>💰 Transparent Pricing</h3>
+                        <p>No surprises. You'll know exactly what you're paying for before we start.</p>
+                    </div>
+                    <div class="why-card">
+                        <h3>⚡ Quick Turnaround</h3>
+                        <p>Most projects delivered in 2-4 weeks. Rush options available for urgent needs.</p>
+                    </div>
+                    <div class="why-card">
+                        <h3>🎯 Results Driven</h3>
+                        <p>We focus on metrics that matter: traffic, leads, and sales. Your success is our success.</p>
+                    </div>
+                    <div class="why-card">
+                        <h3>🤝 Ongoing Partnership</h3>
+                        <p>We're here for the long haul with maintenance, updates, and growth strategies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="animate-on-scroll" aria-labelledby="contact-title">
+            <div class="container contact-container">
+                <h2 id="contact-title" class="section-title">Get Your Free Quote</h2>
+                <p style="text-align: center; margin-bottom: var(--space-md);">Tell us about your project and we'll get back to you within 24 hours</p>
+                
+                <form id="contact-form" novalidate>
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required aria-required="true">
+                        <span class="form-error" id="name-error">Please enter your name</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
+                        <span class="form-error" id="email-error">Please enter a valid email</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-type">Project Type *</label>
+                        <select id="project-type" name="project-type" required aria-required="true">
+                            <option value="">Select a service...</option>
+                            <option value="new-website">New Website</option>
+                            <option value="redesign">Website Redesign</option>
+                            <option value="ecommerce">E-Commerce</option>
+                            <option value="seo">SEO Services</option>
+                            <option value="paid-ads">Paid Advertising</option>
+                            <option value="social-media">Social Media Marketing</option>
+                            <option value="maintenance">Website Maintenance</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <span class="form-error" id="project-error">Please select a project type</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Budget Range</label>
+                        <select id="budget" name="budget">
+                            <option value="">Select your budget...</option>
+                            <option value="under-1k">Under $1,000</option>
+                            <option value="1k-3k">$1,000 - $3,000</option>
+                            <option value="3k-5k">$3,000 - $5,000</option>
+                            <option value="5k-10k">$5,000 - $10,000</option>
+                            <option value="10k-plus">$10,000+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Project Details *</label>
+                        <textarea id="message" name="message" required aria-required="true" placeholder="Tell us about your project goals, timeline, and any specific requirements..."></textarea>
+                        <span class="form-error" id="message-error">Please provide project details</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    
+                    <div class="form-success" id="form-success">
+                        <strong>Thank you!</strong> Your message has been sent successfully. We'll get back to you within 24 hours.
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Social Mastery</h3>
+                    <p>Building affordable, high-quality websites that drive real business results.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/socialmastery" aria-label="Facebook" target="_blank" rel="noopener">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/socialmastery" aria-label="Twitter" target="_blank" rel="noopener">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/company/socialmastery" aria-label="LinkedIn" target="_blank" rel="noopener">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/socialmastery" aria-label="Instagram" target="_blank" rel="noopener">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="#services">Web Development</a>
+                    <a href="#services">SEO Optimization</a>
+                    <a href="#services">Paid Advertising</a>
+                    <a href="#services">Social Media</a>
+                    <a href="#services">Maintenance</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#contact">Contact</a>
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>📧 hello@socialmastery.com</p>
+                    <p>📞 +91 8124246816</p>
+                    <p>📞 +91 9884222819</p>
+                    <p>🕒 Mon-Fri: 9AM - 6PM EST</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Social Mastery. All rights reserved. Built with care for your success.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PORTFOLIO MODAL -->
+    <div class="modal" id="portfolio-modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+        <div class="modal-content">
+            <button class="modal-close"
+aria-label="Close modal">&times;</button>
+            <h2 id="modal-title">Project Details</h2>
+            <div id="modal-body">
+                <!-- Content will be inserted dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== INITIALIZATION =====
+        (function() {
+            'use strict';
+
+            // ===== HEADER SCROLL BEHAVIOR =====
+            const header = document.getElementById('header');
+            let lastScroll = 0;
+            const scrollThreshold = 100;
+
+            // Debounced scroll handler for performance
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+
+            const handleScroll = debounce(() => {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll > scrollThreshold) {
+                    if (currentScroll > lastScroll) {
+                        header.classList.add('hidden');
+                    } else {
+                        header.classList.remove('hidden');
+                    }
+                }
+                
+                lastScroll = currentScroll;
+            }, 10);
+
+            window.addEventListener('scroll', handleScroll, { passive: true });
+
+            // ===== MOBILE MENU TOGGLE =====
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                menuToggle.setAttribute('aria-expanded', !isExpanded);
+            });
+
+            // Close menu when clicking a link
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // ===== SMOOTH SCROLLING =====
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const headerHeight = header.offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // ===== CANVAS ANIMATION (Lightweight particles) =====
+            const canvas = document.getElementById('hero-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            function resizeCanvas() {
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', debounce(resizeCanvas, 100));
+
+            // Particle system
+            const particles = [];
+            const particleCount = 30;
+
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+                
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                    this.radius = Math.random() * 2 + 1;
+                    this.opacity = Math.random() * 0.5 + 0.2;
+                }
+                
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                }
+                
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(37, 99, 235, ${this.opacity})`;
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                
+                // Draw connections
+                particles.forEach((p1, i) => {
+                    particles.slice(i + 1).forEach(p2 => {
+                        const dx = p1.x - p2.x;
+                        const dy = p1.y - p2.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 150) {
+                            ctx.beginPath();
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.strokeStyle = `rgba(16, 185, 129, ${0.2 * (1 - distance / 150)})`;
+                            ctx.lineWidth = 1;
+                            ctx.stroke();
+                        }
+                    });
+                });
+                
+                requestAnimationFrame(animate);
+            }
+            animate();
+
+            // ===== PARALLAX SCROLLING =====
+            const heroBg = document.querySelector('.hero-bg');
+            const heroSection = document.getElementById('hero');
+
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset < heroSection.offsetHeight) {
+                    const scrolled = window.pageYOffset;
+                    const parallaxSpeed = 0.5;
+                    heroBg.style.transform = `translate3d(0, ${scrolled * parallaxSpeed}px, 0)`;
+                }
+            }, { passive: true });
+
+            // ===== INTERSECTION OBSERVER FOR SCROLL ANIMATIONS =====
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('animated');
+                        }, index * 100); // Stagger animations
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Animate service cards individually
+            document.querySelectorAll('.service-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+
+            // ===== 3D CARD INTERACTION =====
+            const card3d = document.getElementById('interactive-card');
+            
+            card3d.addEventListener('mousemove', (e) => {
+                const rect = card3d.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card3d.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+            });
+
+            card3d.addEventListener('mouseleave', () => {
+                card3d.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+
+            // ===== PORTFOLIO MODAL =====
+            const modal = document.getElementById('portfolio-modal');
+            const modalBody = document.getElementById('modal-body');
+            const modalClose = document.querySelector('.modal-close');
+
+            const projectDetails = {
+                ecommerce: {
+                    title: 'E-Commerce Platform',
+                    description: 'A complete online store built with modern technologies, featuring seamless checkout, inventory management, and customer accounts.',
+                    features: ['Custom shopping cart', 'Payment gateway integration', 'Product search & filtering', 'Admin dashboard', 'Email notifications', 'Mobile app integration'],
+                    results: ['156% increase in sales', '89% mobile conversion rate', '2.3s average load time', '4.8/5 customer satisfaction']
+                },
+                restaurant: {
+                    title: 'Restaurant Website',
+                    description: 'Beautiful, responsive website with interactive menu, online reservations, and ordering system integrated with kitchen operations.',
+                    features: ['Digital menu with photos', 'Table reservation system', 'Online ordering', 'Google Maps integration', 'Social media feeds', 'Event booking'],
+                    results: ['240% increase in mobile traffic', '78% online reservation rate', 'Featured in local food blogs', '45% increase in takeout orders']
+                },
+                saas: {
+                    title: 'SaaS Dashboard',
+                    description: 'Clean, intuitive dashboard for B2B software platform with real-time analytics, team collaboration, and workflow automation.',
+                    features: ['Real-time data visualization', 'Team collaboration tools', 'API integrations', 'Custom reporting', 'Role-based access', 'Dark mode support'],
+                    results: ['89% increase in user engagement', '45% reduction in support tickets', '95% user satisfaction score', 'Featured in Product Hunt']
+                }
+            };
+
+            document.querySelectorAll('.portfolio-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const projectType = this.getAttribute('data-project');
+                    const project = projectDetails[projectType];
+                    
+                    if (project) {
+                        modalBody.innerHTML = `
+                            <h3>${project.title}</h3>
+                            <p>${project.description}</p>
+                            <h4 style="margin-top: 1.5rem; color: var(--primary-blue);">Key Features</h4>
+                            <ul style="list-style: none; padding-left: 0;">
+                                ${project.features.map(f => `<li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-green);">✓</span>${f}</li>`).join('')}
+                            </ul>
+                            <h4 style="margin-top: 1.5rem; color: var(--primary-green);">Results</h4>
+                            <ul style="list-style: none; padding-left: 0;">
+                                ${project.results.map(r => `<li style="padding: 0.5rem 0; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0;">📈</span>${r}</li>`).join('')}
+                            </ul>
+                            <a href="#contact" class="btn btn-primary" style="margin-top: 2rem; width: 100%;">Start Your Project</a>
+                        `;
+                        
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            modalClose.addEventListener('click', closeModal);
+            
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+
+            // ===== FORM VALIDATION & SUBMISSION =====
+            const contactForm = document.getElementById('contact-form');
+            const formSuccess = document.getElementById('form-success');
+
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            function showError(fieldId, show = true) {
+                const errorEl = document.getElementById(`${fieldId}-error`);
+                const inputEl = document.getElementById(fieldId);
+                
+                if (show) {
+                    errorEl.style.display = 'block';
+                    inputEl.style.borderColor = '#ef4444';
+                } else {
+                    errorEl.style.display = 'none';
+                    inputEl.style.borderColor = '#e5e7eb';
+                }
+            }
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Reset errors
+                ['name', 'email', 'project', 'message'].forEach(field => showError(field, false));
+                
+                let isValid = true;
+                
+                // Validate name
+                const name = document.getElementById('name').value.trim();
+                if (name.length < 2) {
+                    showError('name');
+                    isValid = false;
+                }
+                
+                // Validate email
+                const email = document.getElementById('email').value.trim();
+                if (!validateEmail(email)) {
+                    showError('email');
+                    isValid = false;
+                }
+                
+                // Validate project type
+                const projectType = document.getElementById('project-type').value;
+                if (!projectType) {
+                    showError('project');
+                    isValid = false;
+                }
+                
+                // Validate message
+                const message = document.getElementById('message').value.trim();
+                if (message.length < 10) {
+                    showError('message');
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    // Simulate form submission
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate API call
+                    setTimeout(() => {
+                        contactForm.reset();
+                        formSuccess.style.display = 'block';
+                        submitBtn.textContent = 'Send Message';
+                        submitBtn.disabled = false;
+                        
+                        // Scroll to success message
+                        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            formSuccess.style.display = 'none';
+                        }, 5000);
+                    }, 1500);
+                } else {
+                    // Scroll to first error
+                    const firstError = contactForm.querySelector('.form-error[style*="block"]');
+                    if (firstError) {
+                        firstError.previousElementSibling.focus();
+                    }
+                }
+            });
+
+            // Real-time validation feedback
+            document.getElementById('email').addEventListener('blur', function() {
+                if (this.value && !validateEmail(this.value)) {
+                    showError('email');
+                } else {
+                    showError('email', false);
+                }
+            });
+
+            // ===== TOUCH/GESTURE ANIMATIONS =====
+            // Add touch feedback to all buttons
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.95)';
+                }, { passive: true });
+                
+                btn.addEventListener('touchend', function() {
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                }, { passive: true });
+            });
+
+            // ===== SWIPE HINT FOR MOBILE =====
+            if ('ontouchstart' in window) {
+                const servicesGrid = document.querySelector('.services-grid');
+                const portfolioGrid = document.querySelector('.portfolio-grid');
+                
+                [servicesGrid, portfolioGrid].forEach(grid => {
+                    if (grid) {
+                        let isScrolling = false;
+                        
+                        grid.addEventListener('touchstart', () => {
+                            isScrolling = true;
+                        }, { passive: true });
+                        
+                        grid.addEventListener('touchend', () => {
+                            setTimeout(() => {
+                                isScrolling = false;
+                            }, 100);
+                        }, { passive: true });
+                    }
+                });
+            }
+
+            // ===== PERFORMANCE: LAZY LOAD ANIMATIONS =====
+            // Only animate elements when they're close to viewport
+            const lazyAnimateObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.willChange = 'transform, opacity';
+                        
+                        setTimeout(() => {
+                            entry.target.style.willChange = 'auto';
+                        }, 1000);
+                    }
+                });
+            }, { rootMargin: '50px' });
+
+            document.querySelectorAll('.service-card, .portfolio-card, .feature-item').forEach(el => {
+                lazyAnimateObserver.observe(el);
+            });
+
+            // ===== CONSOLE MESSAGE =====
+            console.log('%c👋 Looking for a developer?', 'font-size: 20px; color: #2563eb; font-weight: bold;');
+            console.log('%cSocial Mastery builds amazing websites. Visit us at socialmastery.com', 'font-size: 14px; color: #10b981;');
+
+            // ===== ACCESSIBILITY: Focus trap in modal =====
+            const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+            
+            modal.addEventListener('keydown', function(e) {
+                if (!this.classList.contains('active')) return;
+                
+                const focusableContent = this.querySelectorAll(focusableElements);
+                const firstFocusable = focusableContent[0];
+                const lastFocusable = focusableContent[focusableContent.length - 1];
+                
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstFocusable) {
+                            lastFocusable.focus();
+                            e.preventDefault();
+                        }
+                    } else {
+                        if (document.activeElement === lastFocusable) {
+                            firstFocusable.focus();
+                            e.preventDefault();
+                        }
+                    }
+                }
+            });
+
+            // ===== PREFERS REDUCED MOTION =====
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            
+            if (prefersReducedMotion.matches) {
+                // Disable canvas animation for users who prefer reduced motion
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+
+            // ===== PAGE LOAD PERFORMANCE =====
+            window.addEventListener('load', () => {
+                // Remove will-change after initial animations
+                setTimeout(() => {
+                    document.querySelectorAll('[style*="will-change"]').forEach(el => {
+                        el.style.willChange = 'auto';
+                    });
+                }, 3000);
+            });
+
+        })();
+    </script>
+<!-- ========================================
+     WHATSAPP CHAT INTEGRATION
+     ========================================
+     Paste this code block RIGHT BEFORE the closing </body> tag.
+     
+     Features:
+     - Floating WhatsApp button (bottom-right)
+     - Hover tooltip with message preview
+     - Smooth fade-in animation on page load
+     - Subtle bounce animation to draw attention
+     - Fully responsive (mobile + desktop)
+     - Accessible (keyboard navigation + ARIA labels)
+     - Zero conflicts with existing code
+     
+     Customization:
+     - Change phone number in the href attribute
+     - Modify the pre-filled message text
+     - Adjust colors in CSS variables if needed
+========================================= -->
+
+<a href="https://wa.me/918124246816?text=Hi%20Team%20Social%20Mastery%2C%20I%27m%20interested%20in%20your%20services." 
+   id="whatsapp-float-btn" 
+   class="whatsapp-float" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   aria-label="Chat with us on WhatsApp">
+    
+    <!-- WhatsApp Icon SVG -->
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M16 0C7.164 0 0 7.164 0 16c0 2.825.745 5.478 2.048 7.776L0 32l8.464-2.016A15.934 15.934 0 0016 32c8.836 0 16-7.164 16-16S24.836 0 16 0z" fill="#25D366"/>
+        <path d="M25.26 22.42c-.353.995-2.078 1.82-3.015 1.937-.7.083-1.608.125-2.606-.164-.607-.176-1.385-.41-2.38-.806-4.18-1.665-6.906-5.87-7.116-6.138-.21-.27-1.71-2.276-1.71-4.342 0-2.067 1.082-3.084 1.466-3.502.384-.418.838-.522 1.117-.522.28 0 .558.002.802.015.257.013.603-.098.943.72.353.847 1.202 2.934 1.308 3.146.105.212.175.46.035.73-.14.268-.21.434-.42.668-.21.234-.44.522-.63.7-.21.196-.428.408-.184.8.244.392 1.085 1.788 2.33 2.897 1.602 1.428 2.95 1.872 3.368 2.084.418.212.662.176.906-.105.244-.28 1.048-1.225 1.327-1.643.28-.418.558-.35.943-.21.384.14 2.448 1.154 2.867 1.364.418.21.697.315.802.49.105.176.105 1.015-.248 2.01z" fill="#fff"/>
+    </svg>
+    
+    <!-- Tooltip Message Bubble -->
+    <span class="whatsapp-tooltip">Chat with us on WhatsApp 💬</span>
+</a>
+
+<style>
+/* ========================================
+   WHATSAPP FLOAT BUTTON STYLES
+   ======================================== */
+
+.whatsapp-float {
+    /* Positioning */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    
+    /* Sizing */
+    width: 60px;
+    height: 60px;
+    
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Visual styling */
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4),
+                0 8px 24px rgba(0, 0, 0, 0.15);
+    
+    /* Interaction */
+    cursor: pointer;
+    text-decoration: none;
+    
+    /* Performance optimization */
+    transform: translate3d(0, 0, 0);
+    will-change: transform, box-shadow;
+    
+    /* Animation */
+    animation: whatsappFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1s both,
+               whatsappBounce 2s ease-in-out 2s infinite;
+    
+    /* Accessibility */
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Icon sizing */
+.whatsapp-float svg {
+    width: 32px;
+    height: 32px;
+    display: block;
+}
+
+/* Hover effects (desktop) */
+.whatsapp-float:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5),
+                0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-float:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Focus state for accessibility */
+.whatsapp-float:focus {
+    outline: 3px solid #25D366;
+    outline-offset: 4px;
+}
+
+/* Tooltip message bubble */
+.whatsapp-tooltip {
+    /* Positioning */
+    position: absolute;
+    right: 75px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    
+    /* Sizing & spacing */
+    padding: 10px 16px;
+    min-width: 200px;
+    
+    /* Visual styling */
+    background: #fff;
+    color: #1f2937;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    
+    /* Arrow pointer */
+    white-space: nowrap;
+    
+    /* Animation */
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Performance */
+    will-change: transform, opacity;
+}
+
+/* Tooltip arrow */
+.whatsapp-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid #fff;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+
+/* Show tooltip on hover (desktop only) */
+@media (hover: hover) {
+    .whatsapp-float:hover .whatsapp-tooltip {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+/* Fade in animation on page load */
+@keyframes whatsappFadeIn {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+/* Subtle bounce animation (attention grabber) */
+@keyframes whatsappBounce {
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -8px, 0);
+    }
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 56px;
+        height: 56px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-float svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    /* Hide tooltip on mobile (button is obvious enough) */
+    .whatsapp-tooltip {
+        display: none;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        bottom: 16px;
+        right: 16px;
+    }
+    
+    .whatsapp-float svg {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .whatsapp-float {
+        animation: whatsappFadeIn 0.01ms both !important;
+    }
+    
+    .whatsapp-float:hover {
+        transform: none;
+    }
+    
+    .whatsapp-tooltip {
+        transition: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .whatsapp-float {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+    }
+}
+</style>
+
+<script>
+/* ========================================
+   WHATSAPP BUTTON ENHANCEMENTS
+   ======================================== */
+(function() {
+    'use strict';
+    
+    const whatsappBtn = document.getElementById('whatsapp-float-btn');
+    if (!whatsappBtn) return;
+    
+    // Track click for analytics (optional)
+    whatsappBtn.addEventListener('click', function() {
+        // You can add analytics tracking here if needed
+        console.log('WhatsApp chat initiated');
+        
+        // Optional: Add a small scale animation on click
+        this.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            this.style.transform = '';
+        }, 150);
+    }, { passive: true });
+    
+    // Pause bounce animation when user hovers (prevents distraction)
+    whatsappBtn.addEventListener('mouseenter', function() {
+        this.style.animationPlayState = 'paused';
+    });
+    
+    whatsappBtn.addEventListener('mouseleave', function() {
+        this.style.animationPlayState = 'running';
+    });
+    
+    // Clean up will-change after animations complete
+    setTimeout(() => {
+        whatsappBtn.style.willChange = 'auto';
+        const tooltip = whatsappBtn.querySelector('.whatsapp-tooltip');
+        if (tooltip) tooltip.style.willChange = 'auto';
+    }, 3000);
+    
+    // Hide button when scrolling past footer (optional enhancement)
+    const footer = document.querySelector('footer');
+    if (footer && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    whatsappBtn.style.opacity = '0.4';
+                    whatsappBtn.style.pointerEvents = 'none';
+                } else {
+                    whatsappBtn.style.opacity = '1';
+                    whatsappBtn.style.pointerEvents = 'all';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(footer);
+    }
+    
+})();
+</script>
+</body>
+</html>
+
