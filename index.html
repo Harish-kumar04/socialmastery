@@ -2209,8 +2209,129 @@ aria-label="Close modal">&times;</button>
     
 })();
 </script>
+<!-- =================================================================
+     FORM SUBMISSION TO GOOGLE SHEETS SCRIPT
+     =================================================================
+     - Paste this entire <script> block right before the closing </body> tag.
+     - This script is self-contained and does not require any changes to the existing HTML or CSS.
+     - It will automatically find all <form> elements on the page and handle their submissions.
+-->
+<script>
+    /**
+     * This script handles the submission of all forms on the page to a Google Apps Script endpoint.
+     * It prevents the default page reload, sends form data asynchronously using the Fetch API,
+     * and displays a success or error message to the user without disrupting the UI.
+     */
+    document.addEventListener('DOMContentLoaded', function() {
+        // The endpoint URL provided by Google Apps Script.
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzl4uI4I_FjYfaeG-RHfeVDt4J7vT-22ZBJ88ijQgNR4Z-TjrfNyaUGjqnWw_6Ii-Y/exec';
+
+        // Select all forms present on the webpage.
+        const allForms = document.querySelectorAll('form');
+
+        /**
+         * Shows a feedback message (success or error) to the user after a form submission attempt.
+         * The message is dynamically created and inserted after the form's submit button.
+         * @param {HTMLFormElement} form - The form element where the message should be displayed.
+         * @param {string} message - The text content of the message.
+         * @param {string} type - The type of message ('success' or 'error').
+         */
+        const showFeedbackMessage = (form, message, type) => {
+            // Remove any existing feedback message to avoid duplicates.
+            const existingFeedback = form.querySelector('.form-feedback-message');
+            if (existingFeedback) {
+                existingFeedback.remove();
+            }
+
+            // Create the message element.
+            const feedbackEl = document.createElement('div');
+            feedbackEl.className = 'form-feedback-message';
+            feedbackEl.textContent = message;
+
+            // Style the message based on its type (success or error).
+            feedbackEl.style.padding = '1rem';
+            feedbackEl.style.marginTop = '1rem';
+            feedbackEl.style.borderRadius = '0.5rem';
+            feedbackEl.style.textAlign = 'center';
+            feedbackEl.style.fontWeight = '500';
+            feedbackEl.style.transition = 'opacity 0.3s ease';
+
+            if (type === 'success') {
+                feedbackEl.style.backgroundColor = '#d1fae5'; // light-green
+                feedbackEl.style.color = '#059669'; // dark-green
+            } else {
+                feedbackEl.style.backgroundColor = '#fee2e2'; // light-red
+                feedbackEl.style.color = '#b91c1c'; // dark-red
+            }
+
+            // Find the submit button and insert the message after it.
+            const submitButton = form.querySelector('button[type="submit"]');
+            if (submitButton) {
+                submitButton.insertAdjacentElement('afterend', feedbackEl);
+            }
+
+            // Automatically remove the message after 5 seconds for a clean UI.
+            setTimeout(() => {
+                feedbackEl.style.opacity = '0';
+                setTimeout(() => feedbackEl.remove(), 300);
+            }, 5000);
+        };
+
+        /**
+         * The core function to handle the form submission event.
+         * It is an async function to allow for the use of await with the fetch call.
+         * @param {Event} event - The submit event object.
+         */
+        const handleFormSubmit = async (event) => {
+            // 1. Prevent the default form submission behavior (page reload).
+            event.preventDefault();
+
+            const form = event.target;
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+
+            // Disable the button and show a "Sending..." state to prevent multiple submissions.
+            submitButton.disabled = true;
+            submitButton.innerHTML = 'Sending...';
+
+            try {
+                // 2. Collect all form field values into a FormData object.
+                // This works automatically for all input, select, and textarea fields.
+                const formData = new FormData(form);
+
+                // 3. Send the data to the Google Apps Script URL using the Fetch API.
+                // The call is asynchronous and does not block the user interface.
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    // 4. On successful submission, show a success message.
+                    showFeedbackMessage(form, '✅ Thank you! We’ll contact you soon.', 'success');
+                    form.reset(); // Clear the form fields.
+                } else {
+                    // Handle non-successful HTTP responses (e.g., 404, 500).
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+            } catch (error) {
+                // 5. If the submission fails (e.g., network error), show a fallback error message.
+                console.error('Form submission error:', error);
+                showFeedbackMessage(form, '❌ An error occurred. Please try again later.', 'error');
+            } finally {
+                // No matter the outcome, re-enable the submit button and restore its original text.
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonText;
+            }
+        };
+
+        // Attach the submission handler to the 'submit' event of every form on the page.
+        allForms.forEach(form => {
+            form.addEventListener('submit', handleFormSubmit);
+        });
+    });
+</script>
 </body>
 </html>
-
 
 
